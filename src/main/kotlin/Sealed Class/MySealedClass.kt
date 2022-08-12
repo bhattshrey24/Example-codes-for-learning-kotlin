@@ -20,11 +20,11 @@ class MySealedClass {
     }
 
     // Generally sealed class is used to manage different states of a network call
-    // We can only inherit sealed class in the same file and not outside like we can inherit this NetworkState class in just this file and not anywhere else. This way it makes limited hierarchy
+    // We can only inherit sealed class in the same package and not outside like we can inherit this NetworkState class in just this package and not anywhere else. This way it makes limited hierarchy
     sealed class NetworkState() {
         data class Success(val data: Int) : NetworkState()
         data class Error(val data: Int, val error: String) : NetworkState()
-        class Loading() : MySealedClass.NetworkState()
+        object Loading: MySealedClass.NetworkState()
     }
 
     data class Dummy1(val data: Int) : NetworkState() // see we can inherit NetworkState outside it

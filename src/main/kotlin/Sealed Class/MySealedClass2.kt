@@ -1,5 +1,6 @@
 package `Sealed Class`
 
+
 enum class MySealedClass2 {
     BMW, // behind the scene each object/value of this enum is assigned a number like BMW is 0 , AUDI is 1 and MERCEDES is 2
     AUDI,//the one advantage of enum over sealed classes
@@ -10,27 +11,20 @@ enum class MySealedClass2 {
 }
 
 
-// sealed classes are enum classes on steroids
+// Sealed classes are like enum classes on steroids
 sealed class SealedCar() {
     object BMW :
-        SealedCar() // observe that these are objects inside a class and they are inheriting from parent sealed class ie. SealedCar
-
+        SealedCar()
     object Audi : SealedCar()
     object Mercedes : SealedCar()
 }
 
-object Lamborghini : SealedCar() // We can even inherit outside the
-// sealed class in the same package. But we cannot inherit sealed class
-// outside the package in which it is present
-
 sealed class SealedCar2(val model: String) {
-    class BMW(model: String) : SealedCar2(model) {
-
-    }
-
+    class BMW(model: String) : SealedCar2(model) {}
     object Audi : SealedCar2("")
-    object Mercedes : SealedCar2("")
+    data class Mercedes(var carModel:String) : SealedCar2(carModel)
 }
+
 
 // Sealed classes are used to expose state ie. Network State class(ie. Resource class as shown below)
 //Sealed Class can have generics unlike enum
@@ -57,7 +51,41 @@ data class Person2(
         object Male : Gender()
         object Female : Gender()
         object Transgender : Gender() // now we can easily
-    // assign gender by using Gender.Male and we can even increase
-    // the number of gender bu simply adding more object classes
+        // assign gender by using Gender.Male and we can even increase
+        // the number of gender by simply adding more object classes
     }
 }
+
+
+// It can make Error handling much more readable and cleaner
+data class UiState(  // this class cover all 3 network cases of success , loading and error
+    val isLoading: Boolean = false,
+    val error: Error? = null,// instead of just making it a
+    // String , we made it of type 'Error' class because it
+    // improves the readability a lot
+    val items: List<String> = listOf()
+) {
+    sealed class Error {
+        object NetworkError : Error()
+        object InputTooShort : Error()
+        object InputEmpty : Error()
+
+    }
+}
+
+    fun handleResult(result:UiState) {
+
+        when (result.error) {
+            UiState.Error.NetworkError -> { // See now its much more readable and clear
+               // code for handling networkError
+            }
+
+            UiState.Error.InputTooShort -> {
+                // code for handling InputTooShort
+            }
+
+            UiState.Error.InputEmpty -> {
+                // code for handling InputEmpty
+            }
+        }
+    }
