@@ -8,6 +8,7 @@ class MyLists {
         setTest()
     }
 
+    // todo Must read this article : - https://medium.com/mobile-app-development-publication/kotlin-collection-functions-cheat-sheet-975371a96c4b
     private fun arrayTest() {
         println("ARRAY---------------")
         var arr = arrayOf(12, 23, 43, 15, 45, 43)
