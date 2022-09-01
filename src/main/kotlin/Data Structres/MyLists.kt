@@ -15,12 +15,15 @@ class MyLists {
         arr[2] = 10 // assign value to a particular index
         println(arr[0])
         println("size of array ${arr.size}")
-        arr.fill(10, 0, arr.size) // will fill all the array with value 10
+        arr.fill(10, 0, arr.size - 1) // will fill all the array with value 10
 
         var nullArr =
-            arrayOfNulls<Int>(5) // this is same as normal aray that we use in java since it can have null or empty places
+            arrayOfNulls<Int>(5) // this is same as normal aray that we
+        // use in java since it can have null or empty places
         nullArr[0] = 10
         println(nullArr[2]) // Will print null
+
+        var arr2 = intArrayOf(10)
 
     }
 
@@ -51,6 +54,9 @@ class MyLists {
             println("double of ele is : $double")
         }
         println(mList[1])
+        for (myList in 0..10) {
+
+        }
 
 
         //(todo) Filter - it is basically used to filter out elements from list
@@ -64,7 +70,7 @@ class MyLists {
 
         val mList2 = mutableListOf<String>("Shrey", "Stuti", "Prateek", "Prasoon")
         val newFilteredList2 = mList2.filter { ele ->
-            ele.startsWith("S") // So this will simply filter out elements in the list that starts with 'S'
+             ele.startsWith("S") // So this will simply filter out elements in the list that starts with 'S'
         }
         println("New Filtered List 2 is $newFilteredList2")
 
@@ -111,7 +117,7 @@ class MyLists {
         var mapOfEvenAndOdd = myList.groupBy {
             it % 2
         } //Output =>  0=[2,4,6], 1=[1,3,7]
-         println(mapOfEvenAndOdd)
+        println(mapOfEvenAndOdd)
 
         //(todo) FlatMap - Its used to sort of combine 2 or more lists into one. Just see the example below
         //   where I have to create a list of all family members of all the employee in my company to send them invitation for a party

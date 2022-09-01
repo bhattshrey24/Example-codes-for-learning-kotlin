@@ -117,7 +117,8 @@ class GeneralDataStructures {
 
     private fun hashMapTest() {
         println("HashMap -------------")
-        val hm = mapOf<String, Int>("Shrey" to 22, "Stuti" to 27, "Prasoon" to 29, "Prateek" to 27)
+        val hm = mapOf<String, Int>("Shrey" to 22, "Stuti" to 27,
+            "Prasoon" to 29, "Prateek" to 27)
         println("Printing all the Keys")
         for (key in hm.keys) {
             println(key)

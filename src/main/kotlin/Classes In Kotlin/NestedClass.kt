@@ -9,7 +9,8 @@ class NestedClass {
 
     }
 // see this article : https://www.geeksforgeeks.org/kotlin-nested-class-and-inner-class/
-// There are 2 concepts 'nested' and 'inner' class in kotlin . The nested class is basically like Static Nested Class of java and the inner class is like Non-Static Nested Class of java
+// There are 2 concepts 'nested' and 'inner' class in kotlin . The nested class is basically
+// like Static Nested Class of java and the inner class is like Non-Static Nested Class of java
 
     // This is an example of nested class
     class OuterClass1 {
@@ -18,7 +19,8 @@ class NestedClass {
         class NestedClass1 {
             var innerName: String = "Prasoon"
             fun dummy() {
-                // println(outerName)// will give compile time error cause we cannot use outer class properties and functions inside nested class since it is static
+                // println(outerName)// will give compile time error cause we cannot
+                // use outer class properties and functions inside nested class since it is static
 
                 println(OuterClass1().outerName)// we can access it by making object of outer class only
             }
@@ -35,7 +37,10 @@ class NestedClass {
         }
 
         fun ageOfInnerClass() {
-            //  println(innerClassAge) // we can not access inner class properties and methods in outer class directly
+            //  println(innerClassAge) // we can not access inner class properties and methods in
+        //  outer class directly
+
+            println(InnerClass().innerClassAge)// we have to make object of it first
         }
     }
 

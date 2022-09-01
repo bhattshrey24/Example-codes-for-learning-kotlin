@@ -20,7 +20,10 @@ open class AdvanceClass {
 
     class D(name: String, age: Int) : C(name) {
         override var name =
-            super.name.toUpperCase();  // You can override a 'val' property with a 'var' property, but not vice versa. This is allowed because a val property essentially declares a getter method, and overriding it as a var additionally declares a setter method in the derived class
+            super.name.toUpperCase();  // You can override a 'val' property with a 'var' property,
+        // but not vice versa. This is allowed because a val property essentially
+        // declares a getter method, and overriding it as a var additionally
+        // declares a setter method in the derived class
 
     }
 
@@ -58,9 +61,7 @@ open class AdvanceClass {
 
         }
 
-//        constructor(salary: Int) { // This will give compile time error because if we are using 'super' to call constructor of parent then we have to do it in all constructors of child.We can call any constructor of parent
-//
-//        }
+
     }
 
 
@@ -78,13 +79,15 @@ open class AdvanceClass {
     }
 
     class Derived2() : Derived() {
-//        override fun printHi() { // This will give compile time error , if we remove 'final' keyword then theres no problem
+//        override fun printHi() { // This will give compile time error ,
+//        if we remove 'final' keyword then theres no problem
 //
 //        }
 
     }
 
-    //todo 6) If we make object of the derived class then first all the base classes initialization is done first
+    //todo 6) If we make object of the derived class then first all the base classes initialization
+    // is done first
     open class C1 {
         init {
             println("Called init c1 (Will be called 1st)")
@@ -174,18 +177,21 @@ open class AdvanceClass {
         }
 
         lateinit var name: String
+        var parentName: String = ""
         fun b() {
             // some code
         }
 
-        abstract fun c() // if we are not providing body then we have to specify it using 'abstract' keyword
+        abstract fun c() // if we are not providing body then we have to
+        // specify it using 'abstract' keyword
     }
 
     // Weird thing about interfaces in Kotlin is that here methods can have a body too
     interface I {
         var name: String // this will have to initialized by the class that implements it
 
-        //   var name2: String = " " // we cannot initialize a property in interface , it has to be done in the classes that implements it
+        //   var name2: String = " " // we cannot initialize a property in interface ,
+        //   it has to be done in the classes that implements it
         fun b()
         fun c() { // its not necessary to override this method
             println("Yo")
@@ -201,7 +207,9 @@ open class AdvanceClass {
         }
     }
 
-    //todo 8) When a class inherits from a class and also implements an interface (ie. multiple inheritance) and suppose both the class and interface has a same method then we have to specify who's method we are calling using '<>'
+    //todo 8) When a class inherits from a class and also implements an interface
+    // (ie. multiple inheritance) and suppose both the class and interface has a same
+    // method then we have to specify who's method we are calling using '<>'
     open class L {
         open fun f() {
             print("A")
@@ -221,6 +229,7 @@ open class AdvanceClass {
             super<K>.f() // calling f() of interface K
             super<L>.f() // calling f() of class L
         }
+
         fun z() {
             super<K>.f()
         }

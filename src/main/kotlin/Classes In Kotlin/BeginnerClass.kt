@@ -8,6 +8,7 @@ class BeginnerClass {
         val p2 = PersonB("Stuti")
         val p3 = PersonC("Parsoon")
 
+
     }
     //todo(I'm using 'todo' just to highlight the main comment)
 
@@ -39,7 +40,7 @@ class BeginnerClass {
 
     //todo 2) The class PersonD shows how we can have multiple constructors in a class
     class PersonD {
-        constructor(firstName: String) { // Primary constructor , ie. the one with the least amount of parameter becomes the primary constructor
+         constructor(firstName: String) { //Secondary constructor
 
         }
 
@@ -54,9 +55,11 @@ class BeginnerClass {
 
         }
     }
-   //todo 3) classes PersonE, F ,G and H show some general properties of constructors
-    class PersonE() { // () becomes the primary constructor since it has the least amount of argument ie. 0
-        constructor(first: String) : this() { // If we specify primary constructor like we did here in PersonE class then we have to call it either directly or indirectly in all secondary constructors otherwise we get compile time error
+
+    //todo 3) classes PersonE, F ,G and H show some general properties of constructors
+    class PersonE() { // () becomes the primary constructor
+        constructor(first: String) : this() { // we have to call primary constructor either directly
+        // or indirectly in all secondary constructors otherwise we get compile time error
 
         }
 
@@ -71,8 +74,7 @@ class BeginnerClass {
     }
 
     class PersonF {
-        constructor(first: String) { // If we make primary constructor as private then we can't make the object of this class outside this class
-
+        constructor(first: String) {
         }
 
         private constructor(
@@ -87,18 +89,22 @@ class BeginnerClass {
         }
     }
 
-    class PersonG private constructor(var name:String) { // if we are using either an access modifier or an annotation with () ie. empty primary constructor then we have to use the word 'constructor'
+    class PersonG private constructor(var name: String) { // if we are using either an access
+    // modifier or an annotation with () ie. empty primary constructor then we have to use
+    // the word 'constructor'
 
     }
-//    class PersonH private @Inject constructor(var name:String) { // Thats why while using 'Inject' in hilt we use the keyword 'constructor'
+//    class PersonH private @Inject constructor(var name:String) { // Thats why while using
+//    'Inject' in hilt we use the keyword 'constructor'
 //
 //    }
 
 
     //todo 4) If there is no body then there's no need to even add {}
     class A
-    class B(var name: String, var age: Int)//Again this class also does not have a body , just a constructor
-
+    class B(var name: String, var age: Int)//Again this class also does not have a body
+    // , just a constructor
+    class X()
 
     //todo 5) Class Bird and Eagle shows how to achieve inheritance in Kotlin
     open class Bird(var name: String) { // In kotlin if we want to inherit a class we have to declare it 'Open' otherwise we can't inherit it
