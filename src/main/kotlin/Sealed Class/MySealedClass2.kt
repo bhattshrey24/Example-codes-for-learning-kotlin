@@ -19,11 +19,11 @@ sealed class SealedCar() {
     object Mercedes : SealedCar()
 }
 
-sealed class SealedCar2(val model: String) {
-    class BMW(model: String) : SealedCar2(model) {}
-    object Audi : SealedCar2("")
-    data class Mercedes(var carModel:String) : SealedCar2(carModel)
-}
+    sealed class SealedCar2(val model: String) {
+        class BMW(model: String) : SealedCar2(model) {}
+        object Audi : SealedCar2("")
+        data class Mercedes(var carModel:String) : SealedCar2(carModel)
+    }
 
 
 // Sealed classes are used to expose state ie. Network State class(ie. Resource class as shown below)
