@@ -1,5 +1,6 @@
 package `Data Structres`
 
+
 class MyLists {
     fun execute() {
         arrayTest()
@@ -70,7 +71,7 @@ class MyLists {
 
         val mList2 = mutableListOf<String>("Shrey", "Stuti", "Prateek", "Prasoon")
         val newFilteredList2 = mList2.filter { ele ->
-             ele.startsWith("S") // So this will simply filter out elements in the list that starts with 'S'
+            ele.startsWith("S") // So this will simply filter out elements in the list that starts with 'S'
         }
         println("New Filtered List 2 is $newFilteredList2")
 
@@ -145,6 +146,7 @@ class MyLists {
         } // this code will simply add combine all the family members in one list and add "Respected" in front of their names
 
         println(finalListOfInvitation)
+
     }
 
     data class Employee(var name: String, var age: Int, val familyMembers: List<String>)

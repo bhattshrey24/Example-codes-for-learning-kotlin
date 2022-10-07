@@ -25,7 +25,7 @@ class MySealedClass {
         data class Success(val data: Int) : NetworkState()
         data class Error(val data: Int, val error: String) : NetworkState()
         object Loading: MySealedClass.NetworkState()
-    }
+    }   
 
     data class Dummy1(val data: Int) : NetworkState() // see we can inherit NetworkState outside it
 }

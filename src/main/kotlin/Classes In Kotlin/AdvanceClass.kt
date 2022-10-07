@@ -15,12 +15,11 @@ open class AdvanceClass {
 
     //todo 2) We can even override parent's properties using 'open' as shown below in class C and D
     open class C(open val name: String) {
-
+        open val age = 10
     }
 
-    class D(name: String, age: Int) : C(name) {
-        override var name =
-            super.name.toUpperCase();  // You can override a 'val' property with a 'var' property,
+    class D(name2: String, age: Int) : C(name2) {
+        override var age = age + 5// You can override a 'val' property with a 'var' property,
         // but not vice versa. This is allowed because a val property essentially
         // declares a getter method, and overriding it as a var additionally
         // declares a setter method in the derived class
@@ -80,7 +79,7 @@ open class AdvanceClass {
 
     class Derived2() : Derived() {
 //        override fun printHi() { // This will give compile time error ,
-//        if we remove 'final' keyword then theres no problem
+//        if we remove 'final' keyword then there's no problem
 //
 //        }
 
@@ -193,10 +192,10 @@ open class AdvanceClass {
         //   var name2: String = " " // we cannot initialize a property in interface ,
         //   it has to be done in the classes that implements it
         fun b()
-        fun c() { // its not necessary to override this method
+        fun c() { // it's not necessary to override this method
             println("Yo")
         }
-//        init { // compile time error cause interface cannot have init block
+//        init { // compile time error cause interface cannot have init block because it is not a class
 //        }
 
     }

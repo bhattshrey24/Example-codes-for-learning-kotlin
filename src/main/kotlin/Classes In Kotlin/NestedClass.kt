@@ -14,6 +14,7 @@ class NestedClass {
 
     // This is an example of nested class
     class OuterClass1 {
+
         var outerName: String = "Shrey"
 
         class NestedClass1 {
@@ -21,6 +22,7 @@ class NestedClass {
             fun dummy() {
                 // println(outerName)// will give compile time error cause we cannot
                 // use outer class properties and functions inside nested class since it is static
+                // therefore we can access it only if it is inside companion object
 
                 println(OuterClass1().outerName)// we can access it by making object of outer class only
             }
@@ -38,7 +40,7 @@ class NestedClass {
 
         fun ageOfInnerClass() {
             //  println(innerClassAge) // we can not access inner class properties and methods in
-        //  outer class directly
+            //  outer class directly
 
             println(InnerClass().innerClassAge)// we have to make object of it first
         }
